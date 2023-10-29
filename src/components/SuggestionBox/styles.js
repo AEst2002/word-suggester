@@ -11,12 +11,13 @@ export const Container = styled.div`
     flex-direction: column;
 `
 
-export const TitleText = styled.text`
+export const TitleText = styled.p`
     font-weight: bold;
     font-size: 32px;
+    margin: 0px;
 `
 
-export const SuggestedWord = styled.text`
+export const SuggestedWord = styled.p`
     background-color: #2274A5;
     padding: 4px;
     color: white;
