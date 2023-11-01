@@ -59,6 +59,7 @@ export const SubmitButton = styled.button`
     border: none;
     height: 40px;
     font-size: 18px;
+    cursor: pointer;
 `
 
 export const Row = styled.div`

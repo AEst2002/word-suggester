@@ -3,9 +3,7 @@ import { InstructText, MainInput, Container, SideMenu, Column, WritingOutput } f
 import SuggestionBox from '../../components/SuggestionBox'
 
 const Main = () => {
-    const [rawString, setRawString] = useState("")
     const [wordList, setWordList] = useState([])
-    const [taggedWords, setTaggedWords] = useState([])
     const [sugList, setSugList] = useState([])
 
     const wordMapping = (word) => {
@@ -21,7 +19,7 @@ const Main = () => {
                 <InstructText>
                     Enter your text here. Prefix a word with @ to mark it for suggestions.
                 </InstructText>
-                <MainInput onChange={e => {setRawString(e.target.value); setWordList(e.target.value.split(' '))}} />
+                <MainInput onChange={e => {setWordList(e.target.value.split(' '))}} />
                 <InstructText>
                     Output: Click a highlighted word to get suggestions.
                 </InstructText>

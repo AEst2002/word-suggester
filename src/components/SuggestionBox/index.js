@@ -14,52 +14,39 @@ import OpenAI from "openai";
 const SuggestionBox = ({ word, setWord }) => {
     // In here let's set up code for giving GPT an initial prompt,
     // and continued prompting should happen inside this component.
+    const initPrompt = `Give me 4 synonyms for the word ${word}. Format your response as an array, for example: ["word1", "word2", "word3", "word4"]. Do not include any other information in your response. All future messages will provide extra context for the word. Use expert-level writing unless asked otherwise.`
     const [suggestions, setSuggestions] = useState([])
+    const [openAIClient, setOpenAIClient] = useState(null)
+    const [messages, setMessages] = useState([{"role": "user", "content": initPrompt}])
+    const [newMessage, setNewMessage] = useState("")
+    const [visible, setVisible] = useState(true)
 
-    const openai = new OpenAI({
-        organization: 'org-x7LE1EOortseNW98HPCIMzye', 
-        apiKey: process.env.REACT_APP_OPENAI_API_KEY,
-        dangerouslyAllowBrowser: true,
-    });
-
-    const initPrompt = `Give me 4 synonyms for the word ${word}. Format your response as an array, for example: ["word1", "word2", "word3", "word4"]. Do not include any other information in your response. `
-
-    const generateText = async () => {
-        const response = await openai.chat.completions.create({
-            model: 'gpt-3.5-turbo',  
-            temperature: 0.8,
-            max_tokens: 50,
-            messages: [{"role": "user", "content": initPrompt}]
-        });
-
-        // Return the generated text from the response
-        console.log(JSON.parse(response.choices[0].message.content)[0])
-        console.log("NDWHJABUYBEUYAE")
-        setSuggestions(JSON.parse(response.choices[0].message.content))
-        // return JSON.parse(response.choices[0].message.content);
-    }
 
     useEffect(() => {
-        
-        generateText()
-    }, [generateText, initPrompt, openai.chat.completions])
+        // investigate later: defining outside useEffect causes repeated re-runs
+        const openai = new OpenAI({
+            organization: 'org-x7LE1EOortseNW98HPCIMzye', 
+            apiKey: process.env.REACT_APP_OPENAI_API_KEY,
+            dangerouslyAllowBrowser: true,
+        });
 
-    // const generateText = async () => {
-    //     const response = await openai.chat.completions.create({
-    //         model: 'gpt-3.5-turbo',  
-    //         temperature: 0.8,
-    //         max_tokens: 50,
-    //         messages: [{"role": "user", "content": initPrompt}]
-    //     });
-
-    //     // Return the generated text from the response
-    //     console.log(response.choices[0].text)
-    //     return response.choices[0].text;
-    // }
-
-
+        setOpenAIClient(openai)
+        const generateText = async () => {
+            const response = await openai.chat.completions.create({
+                model: 'gpt-3.5-turbo',  
+                temperature: 0.9,
+                max_tokens: 50,
+                messages: messages
+            });
     
-    const [visible, setVisible] = useState(true)
+            // Return the generated text from the response
+            console.log(JSON.parse(response.choices[0].message.content)[0])
+            console.log("NDWHJABUYBEUYAE")
+            setSuggestions(JSON.parse(response.choices[0].message.content))
+        }
+        generateText()
+    }, [word, initPrompt, messages])
+    
     return (
         <>
             {visible && 
@@ -77,8 +64,8 @@ const SuggestionBox = ({ word, setWord }) => {
                         {suggestions.map((s) => <SuggestedWord>{s}</SuggestedWord>)}
                     </SuggestionGrid>
                     <Row>
-                        <Prompter placeholder='Add additional context...'/>
-                        <SubmitButton>Submit</SubmitButton>
+                        <Prompter value={newMessage} onChange={e => setNewMessage(e.target.value)} placeholder='Add additional context...'/>
+                        <SubmitButton onClick={() => {setMessages([...messages, {"role": "user", "content": newMessage}]); setNewMessage("")}}>Submit</SubmitButton>
                     </Row>
                 </Container>
 
