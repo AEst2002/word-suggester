@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { InstructText, MainInput, Container, SideMenu, Column } from './styles'
+import { InstructText, MainInput, Container, SideMenu, Column, WritingOutput } from './styles'
 import OpenAI from "openai";
 import SuggestionBox from '../../components/SuggestionBox'
 
@@ -37,8 +37,10 @@ const Main = () => {
                     Enter your text here. Prefix a word with @ to mark it for suggestions.
                 </InstructText>
                 <MainInput onChange={e => {setRawString(e.target.value); setWordList(e.target.value.split(' '))}} />
-                <div>{wordList.map(word => wordMapping(word))}</div>
-                {/* <button onClick={async () => await doPrompting()}>PRESS ME</button> */}
+                <InstructText>
+                    Output: Click a highlighted word to get suggestions.
+                </InstructText>
+                <WritingOutput>{wordList.map(word => wordMapping(word))}</WritingOutput>
             </Column>
             <SideMenu>
             {sugList.map((word) => {return <SuggestionBox word={word.substring(1)}></SuggestionBox>})}

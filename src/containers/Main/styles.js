@@ -4,10 +4,12 @@ export const InstructText = styled.p`
     color: #808080;
     font-size: 18px;
     font-style: italic;
+    margin-bottom: 5px;
 `
 export const MainInput = styled.textarea`
-    width: 40vw;
-    height: 80vh;
+    width: 50vw;
+    min-height: 40%;
+    padding: 10px;
 `
 
 export const Container = styled.div`
@@ -16,7 +18,8 @@ export const Container = styled.div`
     width: 100vw;
     display: flex;
     flex-direction: row;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
+    overflow-y: scroll;
 `
 
 export const Column = styled.div`
@@ -32,10 +35,21 @@ export const Column = styled.div`
 export const SideMenu =  styled.div`
     width: 40vw;
     border-left: 1px solid black;
-    height: 100%;
+    min-height: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-y:scroll;
     /* padding-top: 30px; */
+`
+
+export const WritingOutput = styled.p`
+    min-width: 80%;
+    word-wrap: break-word;
+    margin-bottom: 40px;
+    overflow-y: scroll;
+    min-height: 40%;
+    border: 2px solid black;
+    padding: 10px;
+    margin-top: 0px;
 `
