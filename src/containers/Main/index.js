@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { InstructText, MainInput, Container, SideMenu, Column } from './styles'
+import { InstructText, MainInput, Container, SideMenu, Column, WritingOutput } from './styles'
 import SuggestionBox from '../../components/SuggestionBox'
 
 const Main = () => {
