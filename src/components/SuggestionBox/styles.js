@@ -2,13 +2,14 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     height: 250px;
-    width: 500px;
+    width: 400px;
     border: 2px solid black;
     border-radius: 10px;
     margin-bottom: 15px;
     padding: 10px;
     display: flex;
     flex-direction: column;
+    margin-top: 10px;
 `
 
 export const TitleText = styled.p`
@@ -30,7 +31,7 @@ export const SuggestedWord = styled.p`
 
 export const SuggestionGrid = styled.div`
     display: flex;
-    width: 50%;
+    width: 100%;
     flex-wrap: wrap;
     margin-top: 10px;
     margin-bottom: auto;
@@ -40,7 +41,7 @@ export const Prompter = styled.input`
     border-radius: 5px;
     border: 2px solid gray;
     height: 35px;
-    width: 80%;
+    width: 75%;
     font-size: 18px;
     padding-left: 10px;
 
