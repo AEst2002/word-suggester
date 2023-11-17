@@ -5,10 +5,13 @@ export const InstructText = styled.p`
     font-size: 18px;
     font-style: italic;
     margin-bottom: 5px;
+    margin-top: 30px;
+    text-align: center;
+    line-height: 30px;
 `
 export const MainInput = styled.div`
     width: 50vw;
-    min-height: 40%;
+    min-height: 80%;
     padding: 10px;
     border: 1px solid black;
 `

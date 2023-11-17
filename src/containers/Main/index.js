@@ -10,7 +10,12 @@ const Main = () => {
     const handleKeyPress = (event) => {
         if (event.key === '@') {
             const txt = inputRef.current.innerText;
-            setSugList([...sugList, txt.split(" ").slice(-1)[0].slice(0, -1)]);
+            const sliced = txt.split(" ").slice(-1)[0].slice(0, -1)
+            // @ character can be escaped by writing \@
+            console.log(sliced[sliced.length - 1])
+            if (sliced.length > 0 && sliced[sliced.length - 1] !== '\\'){
+                setSugList([...sugList, txt.split(" ").slice(-1)[0].slice(0, -1)]);
+            }
         }
     };
 
@@ -18,7 +23,8 @@ const Main = () => {
         <Container>
             <Column>
                 <InstructText>
-                    Enter your text here. Prefix a word with @ to mark it for suggestions.
+                    Enter your text here. End a word with an '@' to request suggestions.<br/>
+                    For example, try tryping "nice@"
                 </InstructText>
                 <MainInput ref={inputRef} onKeyUp={handleKeyPress} contentEditable id={'inputArea'} />
             </Column>
