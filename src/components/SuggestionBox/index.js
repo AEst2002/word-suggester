@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useMemo, memo} from 'react'
 import { Container, Prompter, Row, SubmitButton, SuggestedWord, SuggestionGrid, TitleText } from './styles'
 import XIcon from '../../assets/close.png'
 import OpenAI from "openai";
@@ -11,26 +11,22 @@ import OpenAI from "openai";
 //     dangerouslyAllowBrowser: true,
 // }));
 
-const SuggestionBox = ({ word, setWord }) => {
+const SuggestionBox = ({ word }) => {
     // In here let's set up code for giving GPT an initial prompt,
     // and continued prompting should happen inside this component.
-    const initPrompt = `Give me 4 synonyms for the word ${word}. Format your response as an array, for example: ["word1", "word2", "word3", "word4"]. Do not include any other information in your response. All future messages will provide extra context for the word. Use expert-level writing unless asked otherwise.`
+    const initPrompt = useMemo(() => {console.log('memo'); return`Give me 4 synonyms for the word ${word}. Format your response as an array, for example: ["word1", "word2", "word3", "word4"]. Do not include any other information in your response. All future messages will provide extra context for the word.`}, [word])
     const [suggestions, setSuggestions] = useState([])
-    const [openAIClient, setOpenAIClient] = useState(null)
     const [messages, setMessages] = useState([{"role": "user", "content": initPrompt}])
     const [newMessage, setNewMessage] = useState("")
     const [visible, setVisible] = useState(true)
-
-
+    
     useEffect(() => {
-        // investigate later: defining outside useEffect causes repeated re-runs
         const openai = new OpenAI({
             organization: 'org-x7LE1EOortseNW98HPCIMzye', 
             apiKey: process.env.REACT_APP_OPENAI_API_KEY,
             dangerouslyAllowBrowser: true,
         });
 
-        setOpenAIClient(openai)
         const generateText = async () => {
             const response = await openai.chat.completions.create({
                 model: 'gpt-3.5-turbo',  
@@ -38,15 +34,13 @@ const SuggestionBox = ({ word, setWord }) => {
                 max_tokens: 50,
                 messages: messages
             });
-    
             // Return the generated text from the response
-            console.log(JSON.parse(response.choices[0].message.content)[0])
-            console.log("NDWHJABUYBEUYAE")
             setSuggestions(JSON.parse(response.choices[0].message.content))
         }
+
         generateText()
-    }, [word, initPrompt, messages])
-    
+    }, [messages])
+
     return (
         <>
             {visible && 
@@ -61,7 +55,7 @@ const SuggestionBox = ({ word, setWord }) => {
                         />
                     </Row>
                     <SuggestionGrid>
-                        {suggestions.map((s) => <SuggestedWord>{s}</SuggestedWord>)}
+                        {(suggestions.length > 0) ? (suggestions.map((s) => <SuggestedWord key={s}>{s}</SuggestedWord>)) : 'Loading...'}
                     </SuggestionGrid>
                     <Row>
                         <Prompter value={newMessage} onChange={e => setNewMessage(e.target.value)} placeholder='Add additional context...'/>
@@ -74,4 +68,4 @@ const SuggestionBox = ({ word, setWord }) => {
     )
 }
 
-export default SuggestionBox
+export default memo(SuggestionBox)

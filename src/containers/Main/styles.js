@@ -6,10 +6,11 @@ export const InstructText = styled.p`
     font-style: italic;
     margin-bottom: 5px;
 `
-export const MainInput = styled.textarea`
+export const MainInput = styled.div`
     width: 50vw;
     min-height: 40%;
     padding: 10px;
+    border: 1px solid black;
 `
 
 export const Container = styled.div`

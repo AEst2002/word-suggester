@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
-import { InstructText, MainInput, Container, SideMenu, Column, WritingOutput } from './styles'
+import { InstructText, MainInput, Container, SideMenu, Column } from './styles'
 import SuggestionBox from '../../components/SuggestionBox'
 
 const Main = () => {
-    const [wordList, setWordList] = useState([])
     const [sugList, setSugList] = useState([])
+    // const [count, setCount] = useState(0)
 
-    const wordMapping = (word) => {
-
-        return word.startsWith('@') ? 
-            (<text onClick={() => {setSugList([...sugList, word])}} style={{cursor: 'pointer', color: 'red'}}>{word.substring(1) + ' '}</text>)
-             : (<text>{word + ' '}</text>) 
-    }
+    document.addEventListener('keypress', event => {
+        if (event.key === '@'){
+            const txt = document.getElementById('inputArea').innerHTML;
+            setSugList([...sugList, txt.split(" ").slice(-1)[0]])
+            // sugList.push(txt.split(" ").slice(-1)[0])
+        }
+      })
 
     return (
         <Container>
@@ -19,14 +20,10 @@ const Main = () => {
                 <InstructText>
                     Enter your text here. Prefix a word with @ to mark it for suggestions.
                 </InstructText>
-                <MainInput onChange={e => {setWordList(e.target.value.split(' '))}} />
-                <InstructText>
-                    Output: Click a highlighted word to get suggestions.
-                </InstructText>
-                <WritingOutput>{wordList.map(word => wordMapping(word))}</WritingOutput>
+                <MainInput contentEditable id={'inputArea'} />
             </Column>
             <SideMenu>
-            {sugList.map((word) => {return <SuggestionBox word={word.substring(1)}></SuggestionBox>})}
+            {sugList.map((suggestion) => {return <SuggestionBox key={suggestion} word={suggestion} />})}
             </SideMenu>
         </Container>
     )
