@@ -1,32 +1,35 @@
-import React, { useState } from 'react'
-import { InstructText, MainInput, Container, SideMenu, Column, WritingOutput } from './styles'
+import React, { useState, useRef } from 'react'
+import { InstructText, MainInput, Container, SideMenu, Column } from './styles'
 import SuggestionBox from '../../components/SuggestionBox'
 
 const Main = () => {
-    const [wordList, setWordList] = useState([])
-    const [sugList, setSugList] = useState([])
+   const inputRef = useRef(null);
+   const [sugList, setSugList] = useState([])
+    // const [count, setCount] = useState(0)
 
-    const wordMapping = (word) => {
-
-        return word.startsWith('@') ? 
-            (<text onClick={() => {setSugList([...sugList, word])}} style={{cursor: 'pointer', color: 'red'}}>{word.substring(1) + ' '}</text>)
-             : (<text>{word + ' '}</text>) 
-    }
+    const handleKeyPress = (event) => {
+        if (event.key === '@') {
+            const txt = inputRef.current.innerText;
+            const sliced = txt.split(" ").slice(-1)[0].slice(0, -1)
+            // @ character can be escaped by writing \@
+            console.log(sliced[sliced.length - 1])
+            if (sliced.length > 0 && sliced[sliced.length - 1] !== '\\'){
+                setSugList([...sugList, txt.split(" ").slice(-1)[0].slice(0, -1)]);
+            }
+        }
+    };
 
     return (
         <Container>
             <Column>
                 <InstructText>
-                    Enter your text here. Prefix a word with @ to mark it for suggestions.
+                    Enter your text here. End a word with an '@' to request suggestions.<br/>
+                    For example, try tryping "nice@"
                 </InstructText>
-                <MainInput onChange={e => {setWordList(e.target.value.split(' '))}} />
-                <InstructText>
-                    Output: Click a highlighted word to get suggestions.
-                </InstructText>
-                <WritingOutput>{wordList.map(word => wordMapping(word))}</WritingOutput>
+                <MainInput ref={inputRef} onKeyUp={handleKeyPress} contentEditable id={'inputArea'} />
             </Column>
             <SideMenu>
-            {sugList.map((word) => {return <SuggestionBox word={word.substring(1)}></SuggestionBox>})}
+            {sugList.map((suggestion) => {return <SuggestionBox key={suggestion} word={suggestion} />})}
             </SideMenu>
         </Container>
     )
