@@ -1,11 +1,18 @@
 import React, { useState, useRef } from 'react'
 import { InstructText, MainInput, Container, SideMenu, Column } from './styles'
 import SuggestionBox from '../../components/SuggestionBox'
+import Slider from '@mui/material/Slider';
+import Box from '@mui/material/Box'
+import { marks } from '../../utils'
+
 
 const Main = () => {
    const inputRef = useRef(null);
    const [sugList, setSugList] = useState([])
+   const [numSuggestions, setNumSuggestions] = useState(5)
     // const [count, setCount] = useState(0)
+
+    console.log(numSuggestions)
 
     const handleKeyPress = (event) => {
         if (event.key === '@') {
@@ -29,7 +36,22 @@ const Main = () => {
                 <MainInput ref={inputRef} onKeyUp={handleKeyPress} contentEditable id={'inputArea'} />
             </Column>
             <SideMenu>
-            {sugList.map((suggestion) => {return <SuggestionBox key={suggestion} word={suggestion} />})}
+            <Box sx={{ width: 500 }}>
+                <InstructText>Number of suggestions per generation</InstructText>
+                <Slider
+                    aria-label="Number of suggestions"
+                    defaultValue={5}
+                    getAriaValueText={(v) => {return v}}
+                    valueLabelDisplay="auto"
+                    step={1}
+                    marks={marks}
+                    min={1}
+                    max={10}
+                    onChange={(e) => setNumSuggestions(e.target.value)}
+                />
+            </Box>
+
+            {sugList.map((suggestion) => {return <SuggestionBox key={suggestion} word={suggestion} numSuggestions={numSuggestions} />})}
             </SideMenu>
         </Container>
     )
