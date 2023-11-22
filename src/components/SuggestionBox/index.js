@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useMemo, memo} from 'react'
+import React, {useState, useEffect, memo} from 'react'
 import { Container, Prompter, Row, SubmitButton, SuggestedWord, SuggestionGrid, TitleText } from './styles'
 import XIcon from '../../assets/close.png'
 import OpenAI from "openai";
@@ -11,14 +11,23 @@ import OpenAI from "openai";
 //     dangerouslyAllowBrowser: true,
 // }));
 
-const SuggestionBox = ({ word }) => {
+const SuggestionBox = ({ word, numSuggestions }) => {
     // In here let's set up code for giving GPT an initial prompt,
     // and continued prompting should happen inside this component.
-    const initPrompt = useMemo(() => {console.log('memo'); return`Give me 5 synonyms for the word ${word}. Format your response as an array, for example: ["word1", "word2", "word3", "word4"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All future messages will provide extra context for the word.`}, [word])
+    const initPrompt = `Give me ${numSuggestions} synonyms for the word ${word}. Format your response as an array, for example: ["word1", "word2", "word3", "word4"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All future messages will provide extra context for the word, incorporate them into your suggestions.`
     const [suggestions, setSuggestions] = useState([])
     const [messages, setMessages] = useState([{"role": "user", "content": initPrompt}])
     const [newMessage, setNewMessage] = useState("")
     const [visible, setVisible] = useState(true)
+
+    console.log(initPrompt)
+    console.log(messages)
+
+    useEffect(() => {
+        const m = messages
+        m[0].content = initPrompt
+        setMessages(m)
+    }, [initPrompt, messages])
     
     useEffect(() => {
         const openai = new OpenAI({
@@ -29,7 +38,7 @@ const SuggestionBox = ({ word }) => {
 
         const generateText = async () => {
             const response = await openai.chat.completions.create({
-                model: 'gpt-3.5-turbo',  
+                model: 'gpt-4',  
                 temperature: 0.9,
                 max_tokens: 50,
                 messages: messages
