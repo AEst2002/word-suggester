@@ -10,7 +10,6 @@ const Main = () => {
    const inputRef = useRef(null);
    const [sugList, setSugList] = useState([])
    const [numSuggestions, setNumSuggestions] = useState(5)
-    // const [count, setCount] = useState(0)
 
     console.log(numSuggestions)
 

@@ -3,17 +3,10 @@ import { Container, Prompter, Row, SubmitButton, SuggestedWord, SuggestionGrid, 
 import XIcon from '../../assets/close.png'
 import OpenAI from "openai";
 
-
-// const { Configuration, OpenAIApi } = require('openai');
-// const openai = new OpenAIApi(new Configuration({
-//     organization: 'org-x7LE1EOortseNW98HPCIMzye', 
-//     apiKey: process.env.REACT_APP_OPENAI_API_KEY,
-//     dangerouslyAllowBrowser: true,
-// }));
-
 const SuggestionBox = ({ word, numSuggestions }) => {
     // In here let's set up code for giving GPT an initial prompt,
     // and continued prompting should happen inside this component.
+    
     const initPrompt = `Give me ${numSuggestions} synonyms for the word ${word}. Format your response as an array, for example: ["word1", "word2", "word3", "word4"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All future messages will provide extra context for the word, incorporate them into your suggestions.`
     const [suggestions, setSuggestions] = useState([])
     const [messages, setMessages] = useState([{"role": "user", "content": initPrompt}])
