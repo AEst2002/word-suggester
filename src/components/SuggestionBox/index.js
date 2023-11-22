@@ -68,7 +68,7 @@ const SuggestionBox = ({ word, numSuggestions }) => {
                     </SuggestionGrid>
                     <Row>
                         <Prompter value={newMessage} onChange={e => setNewMessage(e.target.value)} placeholder='Add additional context...'/>
-                        <SubmitButton onClick={() => {setMessages([...messages, {"role": "user", "content": newMessage}]); setNewMessage("")}}>Submit</SubmitButton>
+                        <SubmitButton onClick={() => {setSuggestions([]); setMessages([...messages, {"role": "user", "content": newMessage}]); setNewMessage("")}}>Submit</SubmitButton>
                     </Row>
                 </Container>
 
