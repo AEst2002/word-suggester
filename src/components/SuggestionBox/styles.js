@@ -16,6 +16,7 @@ export const TitleText = styled.p`
     font-weight: bold;
     font-size: 32px;
     margin: 0px;
+    margin-bottom: 5px;
 `
 
 export const SuggestedWord = styled.p`
@@ -33,7 +34,7 @@ export const SuggestionGrid = styled.div`
     display: flex;
     width: 100%;
     flex-wrap: wrap;
-    margin-top: 10px;
+    margin-top: 0px;
     margin-bottom: auto;
 `
 
@@ -65,4 +66,17 @@ export const SubmitButton = styled.button`
 export const Row = styled.div`
     display: flex;
     justify-content: space-between;
+`
+
+export const CopiedText = styled.p`
+    font-style: italic;
+    margin-bottom: 0px;
+    transition: background-color 0.75s linear;
+    background-color: #DDDDFF;
+    border-radius: 5px;
+    width: fit-content;
+    margin-top: 0px;
+    padding-left: 2px;
+    padding-right: 2px;
+    
 `

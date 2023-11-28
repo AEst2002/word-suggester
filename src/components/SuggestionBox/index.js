@@ -1,5 +1,5 @@
 import React, {useState, useEffect, memo} from 'react'
-import { Container, Prompter, Row, SubmitButton, SuggestedWord, SuggestionGrid, TitleText } from './styles'
+import { Container, CopiedText, Prompter, Row, SubmitButton, SuggestedWord, SuggestionGrid, TitleText } from './styles'
 import XIcon from '../../assets/close.png'
 import OpenAI from "openai";
 
@@ -12,6 +12,7 @@ const SuggestionBox = ({ word, numSuggestions }) => {
     const [messages, setMessages] = useState([{"role": "user", "content": initPrompt}])
     const [newMessage, setNewMessage] = useState("")
     const [visible, setVisible] = useState(true)
+    const [copied, setCopied] = useState(false)
 
     useEffect(() => {
         const m = messages
@@ -42,11 +43,23 @@ const SuggestionBox = ({ word, numSuggestions }) => {
                 messages: messages
             });
             // Return the generated text from the response
-            setSuggestions(JSON.parse(response.choices[0].message.content))
+            try {
+                setSuggestions(JSON.parse(response.choices[0].message.content))
+            } catch (err) {
+                setSuggestions(['No suggestions available'])
+            }
         }
 
         generateText()
     }, [messages])
+
+    const handleCopy = (suggestion) => {
+        navigator.clipboard.writeText(suggestion)
+        setCopied(true)
+        setTimeout(() => {
+            setCopied(false);
+        }, 2500);
+    }
     
     return (
         <>
@@ -61,8 +74,9 @@ const SuggestionBox = ({ word, numSuggestions }) => {
                             onClick={() => setVisible(false)} alt="Close"
                         />
                     </Row>
-                    <SuggestionGrid>
-                        {(suggestions.length > 0) ? (suggestions.map((s) => <SuggestedWord onClick={() => {navigator.clipboard.writeText(s)}} key={s}>{s}</SuggestedWord>)) : 'Loading...'}
+                    {copied && <CopiedText>Copied!</CopiedText>}
+                    <SuggestionGrid style={{marginTop: copied ? '5px' : '23px'}}>
+                        {(suggestions.length > 0) ? (suggestions.map((s) => <SuggestedWord onClick={() => handleCopy(s)} key={s}>{s}</SuggestedWord>)) : 'Loading...'}
                     </SuggestionGrid>
                     <Row>
                         {/* CONTROL CONDITION: COMMENT THE TWO LINES BELOW (PROMPTER AND SUBMITBUTTON) */}
