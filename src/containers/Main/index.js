@@ -16,7 +16,7 @@ const Main = () => {
 
     const handleKeyPress = (event) => {
         const txt = inputRef.current.innerText;
-        if (event.key === '@' && inputRef.current) {
+        if (event.key === '@') {
             const sliced = txt.split(" ").slice(-1)[0].slice(0, -1)
             // @ character can be escaped by writing \@
             console.log(sliced[sliced.length - 1])
@@ -36,6 +36,7 @@ const Main = () => {
                     For example, try tryping "nice@"
                 </InstructText>
                 <MainInput ref={inputRef} onKeyUp={handleKeyPress} contentEditable id={'inputArea'} />
+                <br/>
                 <div style={{textAlign: 'left'}}>Word Count: {wordCount} </div>
             </Column>
             <SideMenu>
