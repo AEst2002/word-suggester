@@ -10,12 +10,13 @@ const Main = () => {
    const inputRef = useRef(null);
    const [sugList, setSugList] = useState([])
    const [numSuggestions, setNumSuggestions] = useState(5)
+   const [wordCount, setWordCount] = useState(0)
 
     console.log(numSuggestions)
 
     const handleKeyPress = (event) => {
-        if (event.key === '@') {
-            const txt = inputRef.current.innerText;
+        const txt = inputRef.current.innerText;
+        if (event.key === '@' && inputRef.current) {
             const sliced = txt.split(" ").slice(-1)[0].slice(0, -1)
             // @ character can be escaped by writing \@
             console.log(sliced[sliced.length - 1])
@@ -23,6 +24,8 @@ const Main = () => {
                 setSugList([...sugList, txt.split(" ").slice(-1)[0].slice(0, -1)]);
             }
         }
+
+        setWordCount(txt.split(' ').length)
     };
 
     return (
@@ -33,6 +36,7 @@ const Main = () => {
                     For example, try tryping "nice@"
                 </InstructText>
                 <MainInput ref={inputRef} onKeyUp={handleKeyPress} contentEditable id={'inputArea'} />
+                <div style={{textAlign: 'left'}}>Word Count: {wordCount} </div>
             </Column>
             <SideMenu>
             <Box sx={{ width: 500 }}>
@@ -48,6 +52,7 @@ const Main = () => {
                     max={10}
                     onChange={(e) => setNumSuggestions(e.target.value)}
                 />
+                <InstructText>Click a suggestion to copy it to your clipboard</InstructText>
             </Box>
 
             {sugList.map((suggestion) => {return <SuggestionBox key={suggestion} word={suggestion} numSuggestions={numSuggestions} />})}
