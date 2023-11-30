@@ -11,19 +11,24 @@ const Main = () => {
    const [sugList, setSugList] = useState([])
    const [numSuggestions, setNumSuggestions] = useState(5)
    const [wordCount, setWordCount] = useState(0)
-
-    console.log(numSuggestions)
+   const prevTxt = useRef('')
 
     const handleKeyPress = (event) => {
         const txt = inputRef.current.innerText;
         if (event.key === '@') {
-            const sliced = txt.split(" ").slice(-1)[0].slice(0, -1)
+
+            const dif = txt.split(" ").filter(x => !prevTxt.current.split(" ").includes(x))[0];
+
+            console.log(dif[dif.length - 1])
             // @ character can be escaped by writing \@
-            console.log(sliced[sliced.length - 1])
-            if (sliced.length > 0 && sliced[sliced.length - 1] !== '\\'){
-                setSugList([...sugList, txt.split(" ").slice(-1)[0].slice(0, -1)]);
+            if (dif && dif[dif.length - 1] === '@' && dif[dif.length - 2] !== '\\'){
+                setSugList([...sugList, dif.slice(0, -1)]);
             }
         }
+
+
+        prevTxt.current = txt
+        console.log(prevTxt)
 
         setWordCount(txt.split(' ').length)
     };
