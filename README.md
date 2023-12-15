@@ -5,7 +5,7 @@ Source code for the SYNthia interface used in "SYNthia: An Interface Concept for
 SYNthia’s features and functionalities are embedded in a web application developed using React.js. The suggestion of words is
 supported through the use of OpenAI’s API configured to prompt instances of GPT-4, a large language model created by OpenAI.
 
-<h2>Design Goals<h2/>
+<h2>Design Goals</h2>h2>
 Incorporating ideas extracted from related work, SYNthia attempts to fulfill three primary objectives: coherence to context,
 steerability of suggestions, and divergent outcomes. Coherence to context states that systems
 should "provide suggestions relevant to the task at hand". Users who use words in particular contexts may require suggestions
