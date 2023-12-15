@@ -1,70 +1,23 @@
-# Getting Started with Create React App
+Source code for the SYNthia interface used in "SYNthia: An Interface Concept for Writing With Large Language Models", a paper written for Harvard's CS279r.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+SYNthia’s features and functionalities are embedded in a web application developed using React.js. The suggestion of words is
+supported through the use of OpenAI’s API configured to prompt instances of GPT-4, a large language model created by OpenAI.
 
-## Available Scripts
+**Design Goals**
+Incorporating ideas extracted from related work, SYNthia attempts to fulfill three primary objectives: coherence to context,
+steerability of suggestions, and divergent outcomes. Coherence to context states that systems
+should "provide suggestions relevant to the task at hand". Users who use words in particular contexts may require suggestions
+to reflect that context, or to respect a particular voice or tone, among other possible considerations. In order to fulfill this coherency
+to context, systems accepting user input should demonstrate steerability. Systems that are steerable adapt their outputs to the
+input of their users, creating an environment of co-creativity. Systems supporting divergent outcomes provide several valid
+candidates for suggestions, attempting to support variation in writers’ work.
 
-In the project directory, you can run:
+To support coherency to context, SYNthia always incorporates all context provided by users to produce the most relevant
+suggestions possible when given one or more statements of clarification. By allowing users to directly express the types of
+suggestions they are seeking, SYNthia is able to effectively remain coherent to their context by providing suggestions that are
+relevant to the description of context provided.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To support divergent outcomes, SYNthia provides users with the option to adjust the number of suggestions provided, supporting
+up to 10 different word suggestions at a time. The GPT-4 prompt provided to SYNthia specifies that these suggestions should be
+distinct, and this is reflected in the lack of in-list duplicates and variety of words provided in every generation of suggestions,
+giving users a wide breadth of candidate words from which to choose from
