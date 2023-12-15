@@ -1,4 +1,4 @@
-<h1>SYNthia<h1/>
+<h1>SYNthia</h1>
 Source code for the SYNthia interface used in "SYNthia: An Interface Concept for Writing With Large Language Models", a paper written for Harvard's CS279r.
 
 <h2>Overview</h2>
