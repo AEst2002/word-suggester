@@ -4,6 +4,20 @@ import SuggestionBox from '../../components/SuggestionBox'
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box'
 import { marks } from '../../utils'
+import { data } from '../../components/SuggestionBox/index'
+
+const downloadJSON = () => {
+    const jsonString = JSON.stringify(data, null, 2); 
+    const blob = new Blob([jsonString], { type: "application/json" }); 
+    const url = URL.createObjectURL(blob); 
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "data_test.json"; // Specify download filename
+    link.click(); 
+    URL.revokeObjectURL(url); 
+    // console.log('DOWNLOAD PRESSED');
+    // console.log(data);
+};
 
 
 const Main = () => {
@@ -43,6 +57,7 @@ const Main = () => {
                 <MainInput ref={inputRef} onKeyUp={handleKeyPress} contentEditable id={'inputArea'} />
                 <br/>
                 <div style={{textAlign: 'left'}}>Word Count: {wordCount} </div>
+                <a href="#" onClick={downloadJSON} className="download-link">Download JSON</a>
             </Column>
             <SideMenu>
             <Box sx={{ width: 500 }}>

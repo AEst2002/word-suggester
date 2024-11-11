@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.download-link {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  padding: 2px 3px;
+  font-size: 10px;
+  border-radius: 1px;
+}

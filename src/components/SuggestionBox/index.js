@@ -3,16 +3,32 @@ import { Container, CopiedText, Prompter, Row, SubmitButton, SuggestedWord, Sugg
 import XIcon from '../../assets/close.png'
 import OpenAI from "openai";
 
+// data to log in json
+export let data = [];
+
+function addEntry(wordPrompted, contextsGiven, wordChosen) {
+    // Add a new object to the data array
+    data.push({
+        "word_prompted": wordPrompted,      // String for the words prompted
+        "context_given": contextsGiven,       // Array for multiple contexts
+        "word_chosen": wordChosen             // String for the word chosen
+    });
+}
+
 const SuggestionBox = ({ word, numSuggestions }) => {
     // In here let's set up code for giving GPT an initial prompt,
     // and continued prompting should happen inside this component.
-
-    const initPrompt = `From now on, give me ${numSuggestions} distinct synonyms for the word ${word}. Format your response as an array, for example: ["word1", "word2", "word3", "word4"]. Do not include any other information in your response. If you cannot come up with ${numSuggestions}, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for ${word}.`
+    const initPrompt = `From now on, give me ${numSuggestions} distinct synonyms for the word ${word}. You MUST format your response as an array, for example: ["word1", "word2", "word3", "word4"]. Do not include any other information in your response. If you cannot come up with ${numSuggestions}, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for ${word}.`
     const [suggestions, setSuggestions] = useState([])
     const [messages, setMessages] = useState([{"role": "user", "content": initPrompt}])
     const [newMessage, setNewMessage] = useState("")
     const [visible, setVisible] = useState(true)
     const [copied, setCopied] = useState(false)
+
+    // init data json entries
+    let wordPrompted = word;
+    let contextsGiven = [];
+    let wordChosen = "";
 
     useEffect(() => {
         const m = messages
@@ -26,6 +42,9 @@ const SuggestionBox = ({ word, numSuggestions }) => {
             m.push({"role": "assistant", "content": `${suggestions}`})
         }
         setMessages(m)
+        contextsGiven = messages;
+        addEntry(wordPrompted, contextsGiven, wordChosen);
+        console.log('contexts given: ', contextsGiven);
     }, [messages, suggestions])
     
     useEffect(() => {
@@ -36,17 +55,36 @@ const SuggestionBox = ({ word, numSuggestions }) => {
         });
 
         const generateText = async () => {
-            const response = await openai.chat.completions.create({
-                model: 'gpt-4',  
-                temperature: 0.9,
-                max_tokens: 50,
-                messages: messages
-            });
-            // Return the generated text from the response
-            try {
-                setSuggestions(JSON.parse(response.choices[0].message.content))
-            } catch (err) {
-                setSuggestions(['No suggestions available'])
+            // const response = await openai.chat.completions.create({
+            //     model: 'gpt-4',  
+            //     temperature: 0.9,
+            //     max_tokens: 50,
+            //     messages: messages
+            // });
+            // // Return the generated text from the response
+            // try {
+            //     setSuggestions(JSON.parse(response.choices[0].message.content))
+            // } catch (err) {
+            //     setSuggestions(['No suggestions available'])
+            // }
+            let i = 0;
+            while (i < 5) {
+                try {
+                    const response = await openai.chat.completions.create({
+                        model: 'gpt-4',  
+                        temperature: 0.9,
+                        max_tokens: 50,
+                        messages: messages
+                    });
+                    
+                    setSuggestions(JSON.parse(response.choices[0].message.content));
+                    break; // Exit the loop if parsing is successful
+                } catch (err) {
+                    i++;
+                    if (i === 5) {
+                        setSuggestions(['No suggestions available']);
+                    }
+                }
             }
         }
 
@@ -59,7 +97,11 @@ const SuggestionBox = ({ word, numSuggestions }) => {
         setTimeout(() => {
             setCopied(false);
         }, 2500);
+        wordChosen = suggestion;
+        addEntry(wordPrompted, contextsGiven, wordChosen);
     }
+
+    console.log('data: ', data);
     
     return (
         <>
