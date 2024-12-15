@@ -1,135 +1,156 @@
-import React, {useState, useEffect, memo} from 'react'
-import { Container, CopiedText, Prompter, Row, SubmitButton, SuggestedWord, SuggestionGrid, TitleText } from './styles'
-import XIcon from '../../assets/close.png'
+import React, { useState, useEffect, memo } from 'react';
+import { Container, CopiedText, Prompter, Row, SubmitButton, SuggestedWord, SuggestionGrid, TitleText } from './styles';
+import XIcon from '../../assets/close.png';
 import OpenAI from "openai";
+import { v4 as uuidv4 } from 'uuid'; // Import a unique ID generator
 
-// data to log in json
 export let data = [];
 
-function addEntry(wordPrompted, contextsGiven, wordChosen) {
-    // Add a new object to the data array
-    data.push({
-        "word_prompted": wordPrompted,      // String for the words prompted
-        "context_given": contextsGiven,       // Array for multiple contexts
-        "word_chosen": wordChosen             // String for the word chosen
-    });
+function addEntry(id, wordPrompted, contextsGiven, wordChosen) {
+    const existingEntryIndex = data.findIndex(entry => entry.id === id);
+    if (existingEntryIndex !== -1) {
+        // Update the existing entry
+        data[existingEntryIndex] = {
+            id,
+            word_prompted: wordPrompted,
+            context_given: contextsGiven,
+            word_chosen: wordChosen,
+        };
+    } else {
+        // Add a new entry
+        data.push({
+            id,
+            word_prompted: wordPrompted,
+            context_given: contextsGiven,
+            word_chosen: wordChosen,
+        });
+    }
 }
 
-const SuggestionBox = ({ word, numSuggestions }) => {
-    // In here let's set up code for giving GPT an initial prompt,
-    // and continued prompting should happen inside this component.
-    const initPrompt = `From now on, give me ${numSuggestions} distinct synonyms for the word ${word}. You MUST format your response as an array, for example: ["word1", "word2", "word3", "word4"]. Do not include any other information in your response. If you cannot come up with ${numSuggestions}, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for ${word}.`
-    const [suggestions, setSuggestions] = useState([])
-    const [messages, setMessages] = useState([{"role": "user", "content": initPrompt}])
-    const [newMessage, setNewMessage] = useState("")
-    const [visible, setVisible] = useState(true)
-    const [copied, setCopied] = useState(false)
+const SuggestionBox = ({ word, numSuggestions, onActivityChange, onTyping }) => {
+    const initPrompt = `From now on, give me ${numSuggestions} distinct synonyms for the word ${word}. You MUST format your response as an array, for example: ["word1", "word2", "word3", "word4"]. Do not include any other information in your response. If you cannot come up with ${numSuggestions}, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for ${word}.`;
 
-    // init data json entries
+    const [suggestions, setSuggestions] = useState([]);
+    const [messages, setMessages] = useState([{ role: "user", content: initPrompt }]);
+    const [newMessage, setNewMessage] = useState("");
+    const [visible, setVisible] = useState(true);
+    const [copied, setCopied] = useState(false);
+    const [logged, setLogged] = useState(false); // Track if the entry has been logged
+
+    const boxId = React.useMemo(() => uuidv4(), []); // Generate a unique ID for this instance
+    const [isFocused, setIsFocused] = useState(false);
+
     let wordPrompted = word;
-    let contextsGiven = [];
     let wordChosen = "";
+    let contextsGiven = messages.filter(msg => msg.role === "user").map(msg => msg.content);
 
     useEffect(() => {
-        const m = messages
-        m[0].content = initPrompt
-        setMessages(m)
-    }, [initPrompt, messages])
+        onActivityChange(true); // Notify Main when SuggestionBox opens
+
+        return () => {
+            onActivityChange(false); // Notify Main when SuggestionBox closes
+        };
+    }, [onActivityChange]);
+
+    const handleInputChange = (e) => {
+        const isTyping = e.target.value.trim().length > 0;
+        setNewMessage(e.target.value);
+
+        // Notify Main about typing activity
+        onTyping(isTyping);
+    };
 
     useEffect(() => {
-        const m = messages
-        if(suggestions.length > 0){
-            m.push({"role": "assistant", "content": `${suggestions}`})
+        if (!logged && wordPrompted) {
+            addEntry(boxId, wordPrompted, contextsGiven, wordChosen);
+            setLogged(true); // Ensure the initial log happens only once
         }
-        setMessages(m)
-        contextsGiven = messages;
-        addEntry(wordPrompted, contextsGiven, wordChosen);
-        console.log('contexts given: ', contextsGiven);
-    }, [messages, suggestions])
-    
+    }, [logged, wordPrompted, contextsGiven, boxId]);
+
     useEffect(() => {
         const openai = new OpenAI({
-            organization: 'org-x7LE1EOortseNW98HPCIMzye', 
+            organization: 'org-x7LE1EOortseNW98HPCIMzye',
             apiKey: process.env.REACT_APP_OPENAI_API_KEY,
             dangerouslyAllowBrowser: true,
         });
 
         const generateText = async () => {
-            // const response = await openai.chat.completions.create({
-            //     model: 'gpt-4',  
-            //     temperature: 0.9,
-            //     max_tokens: 50,
-            //     messages: messages
-            // });
-            // // Return the generated text from the response
-            // try {
-            //     setSuggestions(JSON.parse(response.choices[0].message.content))
-            // } catch (err) {
-            //     setSuggestions(['No suggestions available'])
-            // }
-            let i = 0;
-            while (i < 5) {
+            let attempts = 0;
+            while (attempts < 3) {
                 try {
                     const response = await openai.chat.completions.create({
-                        model: 'gpt-4',  
+                        model: 'gpt-4',
                         temperature: 0.9,
                         max_tokens: 50,
-                        messages: messages
+                        messages: messages,
                     });
-                    
+
                     setSuggestions(JSON.parse(response.choices[0].message.content));
                     break; // Exit the loop if parsing is successful
                 } catch (err) {
-                    i++;
-                    if (i === 5) {
+                    attempts++;
+                    if (attempts === 3) {
                         setSuggestions(['No suggestions available']);
                     }
                 }
             }
-        }
+        };
 
-        generateText()
-    }, [messages])
+        generateText();
+    }, [messages]);
 
     const handleCopy = (suggestion) => {
-        navigator.clipboard.writeText(suggestion)
-        setCopied(true)
-        setTimeout(() => {
-            setCopied(false);
-        }, 2500);
+        navigator.clipboard.writeText(suggestion);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2500);
         wordChosen = suggestion;
-        addEntry(wordPrompted, contextsGiven, wordChosen);
-    }
+        addEntry(boxId, wordPrompted, contextsGiven, wordChosen); // Update entry when word is chosen
+    };
 
-    console.log('data: ', data);
-    
+    const handleSubmit = () => {
+        if (newMessage.trim()) {
+            setSuggestions([]);
+            setMessages(prevMessages => [...prevMessages, { role: "user", content: newMessage }]);
+            setNewMessage("");
+            addEntry(boxId, wordPrompted, [...contextsGiven, newMessage], wordChosen); // Update entry when context is added
+        }
+    };
+
     return (
-        <>
-            {visible && 
+        visible && (
+            <Container
+                onFocus={() => setIsFocused(true)} // Detect when SuggestionBox is focused
+                onBlur={() => setIsFocused(false)} // Detect when SuggestionBox loses focus
+            >
+                <Row>
+                    <TitleText style={{ fontWeight: 'bold' }}>{word}</TitleText>
+                    <img
+                        style={{ cursor: 'pointer', height: '20px', width: '20px' }}
+                        src={XIcon}
+                        onClick={() => setVisible(false)}
+                        alt="Close"
+                    />
+                </Row>
+                {copied && <CopiedText>Copied!</CopiedText>}
+                <SuggestionGrid style={{ marginTop: copied ? '5px' : '23px' }}>
+                    {suggestions.length > 0 ? (
+                        suggestions.map(s => <SuggestedWord onClick={() => handleCopy(s)} key={s}>{s}</SuggestedWord>)
+                    ) : (
+                        'Loading...'
+                    )}
+                </SuggestionGrid>
+                <Row>
+                    <Prompter
+                        value={newMessage}
+                        onChange={handleInputChange}
+                        placeholder='Add additional context...'
+                        onKeyDown={e => e.key === 'Enter' && handleSubmit()}
+                    />
+                    <SubmitButton onClick={handleSubmit}>Submit</SubmitButton>
+                </Row>
+            </Container>
+        )
+    );
+};
 
-                <Container>
-                    <Row>
-                        <TitleText style={{fontWeight: 'bold'}}>{word}</TitleText>
-                        <img 
-                            style={{cursor: 'pointer', height: '20px', width: '20px'}} 
-                            src={XIcon} 
-                            onClick={() => setVisible(false)} alt="Close"
-                        />
-                    </Row>
-                    {copied && <CopiedText>Copied!</CopiedText>}
-                    <SuggestionGrid style={{marginTop: copied ? '5px' : '23px'}}>
-                        {(suggestions.length > 0) ? (suggestions.map((s) => <SuggestedWord onClick={() => handleCopy(s)} key={s}>{s}</SuggestedWord>)) : 'Loading...'}
-                    </SuggestionGrid>
-                    <Row>
-                        {/* CONTROL CONDITION: COMMENT THE TWO LINES BELOW (PROMPTER AND SUBMITBUTTON) */}
-                        <Prompter value={newMessage} onChange={e => setNewMessage(e.target.value)} placeholder='Add additional context...'/>
-                        <SubmitButton onClick={() => {setSuggestions([]); setMessages([...messages, {"role": "user", "content": newMessage}]); setNewMessage("")}}>Submit</SubmitButton>
-                    </Row>
-                </Container>
-
-            }
-        </>
-    )
-}
-
-export default memo(SuggestionBox)
+export default memo(SuggestionBox);
