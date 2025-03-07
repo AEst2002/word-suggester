@@ -1,0 +1,34 @@
+[
+  {
+    "id": "eee7e056-563d-4cc7-9c82-e29abaea4075",
+    "word_prompted": "mysterious",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word mysterious. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for mysterious and match the additional context."
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "d8519881-64f1-4aa3-b3af-52bf9b1bc28b",
+    "word_prompted": "creepy",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word creepy. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for creepy and match the additional context."
+    ],
+    "word_chosen": "unsettling"
+  },
+  {
+    "id": "bc3eadc1-8ec1-4adc-ba8f-c1aefad37a18",
+    "word_prompted": "silent",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word silent. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for silent and match the additional context."
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "dadeb6b9-5a8e-420f-8d7f-c3042097655b",
+    "word_prompted": "frequency",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word frequency. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for frequency and match the additional context."
+    ],
+    "word_chosen": ""
+  }
+]

@@ -12,7 +12,7 @@ const downloadJSON = () => {
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = "katy.json";
+    link.download = "p19_novice_helen";
     link.click();
     URL.revokeObjectURL(url);
 };

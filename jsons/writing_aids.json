@@ -1,0 +1,21 @@
+{
+    "p1": [],
+    "p2": ["Google"],
+    "p3": ["Thesaurus"],
+    "p4": ["Google", "Thesaurus"],
+    "p5": ["Generative AI"],
+    "p6": ["Generative AI", "Thesaurus"],
+    "p7": ["Generative AI"],
+    "p8": ["Thesaurus"],
+    "p9": ["Thesaurus"],
+    "p10": ["Thesaurus"],
+    "p11": ["Thesaurus", "Generative AI"],
+    "p12": ["Generative AI"],
+    "p13": ["Grammarly", "Generative AI"],
+    "p14": ["Thesaurus", "Generative AI"],
+    "p15": ["Thesaurus", "Generative AI"],
+    "p16": ["Grammarly"],
+    "p17": ["Thesaurus"],
+    "p18": ["Generative AI"],
+    "p19": ["Thesaurus"]
+}

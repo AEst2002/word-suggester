@@ -1,0 +1,67 @@
+[
+  {
+    "id": "52bdc5f9-210f-4606-b832-f1c132323c42",
+    "word_prompted": "phone",
+    "context_given": [
+      "From now on, give me 2 distinct synonyms for the word phone. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 2, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for phone and match the additional context."
+    ],
+    "word_chosen": "Cellphone"
+  },
+  {
+    "id": "e11d84f8-c122-4cde-8531-d919f493385b",
+    "word_prompted": "options",
+    "context_given": [
+      "From now on, give me 2 distinct synonyms for the word options. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 2, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for options and match the additional context."
+    ],
+    "word_chosen": "Alternatives"
+  },
+  {
+    "id": "2615c478-190d-4b38-8801-e5f09750e45e",
+    "word_prompted": "random",
+    "context_given": [
+      "From now on, give me 6 distinct synonyms for the word random. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 6, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for random and match the additional context.",
+      "more old fashioned"
+    ],
+    "word_chosen": "arbitrary"
+  },
+  {
+    "id": "6cd37708-03de-4607-b393-7f42eee835d3",
+    "word_prompted": "scary",
+    "context_given": [
+      "From now on, give me 6 distinct synonyms for the word scary. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 6, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for scary and match the additional context."
+    ],
+    "word_chosen": "Creepy"
+  },
+  {
+    "id": "7d09f520-3321-49fb-b3bd-f55c0db60b1a",
+    "word_prompted": "heck",
+    "context_given": [
+      "From now on, give me 9 distinct synonyms for the word heck. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 9, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for heck and match the additional context."
+    ],
+    "word_chosen": "deuce"
+  },
+  {
+    "id": "97cc99d8-6384-4346-ac61-699381fef8c7",
+    "word_prompted": "closer",
+    "context_given": [
+      "From now on, give me 8 distinct synonyms for the word closer. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 8, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for closer and match the additional context."
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "4c43680a-712e-4974-8574-98dea1ea6a3d",
+    "word_prompted": "piercing",
+    "context_given": [
+      "From now on, give me 3 distinct synonyms for the word piercing. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 3, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for piercing and match the additional context."
+    ],
+    "word_chosen": "sharp"
+  },
+  {
+    "id": "d20ee745-4d11-40a8-b285-422ae22e59d4",
+    "word_prompted": "dim",
+    "context_given": [
+      "From now on, give me 3 distinct synonyms for the word dim. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 3, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for dim and match the additional context."
+    ],
+    "word_chosen": "dull"
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "id": "f37076bf-ca08-416e-b346-ade373c95bd8",
+    "word_prompted": "lead",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word lead. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for lead and match the additional context.",
+      "weight"
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "05c6418f-7f96-496d-9c19-bc142e9a8b05",
+    "word_prompted": "Grudgingly",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word Grudgingly. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for Grudgingly and match the additional context."
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "5f7def14-64f5-4435-95a2-9e99095e5489",
+    "word_prompted": "lamp",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word lamp. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for lamp and match the additional context."
+    ],
+    "word_chosen": "Light"
+  }
+]

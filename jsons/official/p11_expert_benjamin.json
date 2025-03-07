@@ -1,0 +1,205 @@
+[
+  {
+    "id": "00d63689-fe90-4c90-bfda-34001db33ec1",
+    "word_prompted": "shard",
+    "context_given": [
+      "From now on, give me 8 distinct synonyms for the word shard. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 8, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for shard and match the additional context."
+    ],
+    "word_chosen": "Spall"
+  },
+  {
+    "id": "0bdefe1a-8c8d-4332-857f-6164e3f004ae",
+    "word_prompted": "digits",
+    "context_given": [
+      "From now on, give me 8 distinct synonyms for the word digits. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 8, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for digits and match the additional context."
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "860c2e12-84f8-4831-b57b-452c5c7cf97e",
+    "word_prompted": "extended",
+    "context_given": [
+      "From now on, give me 8 distinct synonyms for the word extended. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 8, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for extended and match the additional context."
+    ],
+    "word_chosen": "protracted"
+  },
+  {
+    "id": "a4c4d698-d94a-4e3f-9998-623e0b7a8c96",
+    "word_prompted": "anonymous",
+    "context_given": [
+      "From now on, give me 8 distinct synonyms for the word anonymous. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 8, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for anonymous and match the additional context."
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "63c9fe51-7333-40f9-b660-1b762032e653",
+    "word_prompted": "anonymous",
+    "context_given": [
+      "From now on, give me 10 distinct synonyms for the word anonymous. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 10, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for anonymous and match the additional context."
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "3846f473-6e07-495a-be40-2c47f93f72aa",
+    "word_prompted": "obscure",
+    "context_given": [
+      "From now on, give me 6 distinct synonyms for the word obscure. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 6, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for obscure and match the additional context."
+    ],
+    "word_chosen": "cryptic"
+  },
+  {
+    "id": "6982bc33-f302-4ece-b9a2-9afe9c8e113b",
+    "word_prompted": "humanity",
+    "context_given": [
+      "From now on, give me 6 distinct synonyms for the word humanity. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 6, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for humanity and match the additional context.",
+      "humanism"
+    ],
+    "word_chosen": "graciousness"
+  },
+  {
+    "id": "6438181d-43a4-41ab-9b2b-8cb65a9157cd",
+    "word_prompted": "red",
+    "context_given": [
+      "From now on, give me 6 distinct synonyms for the word '\nred. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 6, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for '\nred and match the additional context."
+    ],
+    "word_chosen": "Cardinal"
+  },
+  {
+    "id": "2c1f6ce9-1109-4f26-91eb-9b8385df246b",
+    "word_prompted": "sunset",
+    "context_given": [
+      "From now on, give me 6 distinct synonyms for the word sunset. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 6, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for sunset and match the additional context."
+    ],
+    "word_chosen": "eventide"
+  },
+  {
+    "id": "619c7815-0d03-406d-b4b4-2b4727beb385",
+    "word_prompted": "murky",
+    "context_given": [
+      "From now on, give me 6 distinct synonyms for the word murky. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 6, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for murky and match the additional context."
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "7716e461-b89b-42ec-9f8b-5c46548e3bdc",
+    "word_prompted": "murky",
+    "context_given": [
+      "From now on, give me 8 distinct synonyms for the word murky. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 8, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for murky and match the additional context."
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "91a9e6a7-0206-4d76-8943-402f200221ed",
+    "word_prompted": "murky",
+    "context_given": [
+      "From now on, give me 10 distinct synonyms for the word murky. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 10, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for murky and match the additional context."
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "5411820f-ccba-4afb-a986-4ee0bacd4e8a",
+    "word_prompted": "uneventful",
+    "context_given": [
+      "From now on, give me 10 distinct synonyms for the word uneventful. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 10, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for uneventful and match the additional context."
+    ],
+    "word_chosen": "placid"
+  },
+  {
+    "id": "f1fdc307-e41b-47ef-b35d-ac0f3bcfab1f",
+    "word_prompted": "mirror",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word mirror. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for mirror and match the additional context."
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "8c1e1211-70ff-496d-abe3-778555417cdd",
+    "word_prompted": "mirror",
+    "context_given": [
+      "From now on, give me 7 distinct synonyms for the word mirror. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 7, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for mirror and match the additional context."
+    ],
+    "word_chosen": "pier glass"
+  },
+  {
+    "id": "4691af72-519f-4a83-b5a7-6d6ebdb6b4b0",
+    "word_prompted": "lullaby",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word lullaby. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for lullaby and match the additional context."
+    ],
+    "word_chosen": "berceuse"
+  },
+  {
+    "id": "9b3a0c4b-75fd-4b5f-b20c-f1610a60f593",
+    "word_prompted": "song",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word song. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for song and match the additional context."
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "3baa274c-94fe-46e3-85de-965c10918163",
+    "word_prompted": "swan-song",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word swan-song. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for swan-song and match the additional context."
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "a8e522b0-a4fa-4393-8e69-1fe6bdf7d539",
+    "word_prompted": "swan-song",
+    "context_given": [
+      "From now on, give me 7 distinct synonyms for the word swan-song. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 7, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for swan-song and match the additional context."
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "7ca8225a-70e6-401d-a0e3-aab72e655984",
+    "word_prompted": "epigraph",
+    "context_given": [
+      "From now on, give me 7 distinct synonyms for the word epigraph. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 7, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for epigraph and match the additional context."
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "671476c0-97bc-4a24-8a3d-07f1c72c25bb",
+    "word_prompted": "epitaph",
+    "context_given": [
+      "From now on, give me 7 distinct synonyms for the word epitaph. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 7, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for epitaph and match the additional context."
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "62087d87-e7f5-4b94-a937-07e611c9ea8f",
+    "word_prompted": "lock",
+    "context_given": [
+      "From now on, give me 7 distinct synonyms for the word lock. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 7, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for lock and match the additional context.",
+      "noun"
+    ],
+    "word_chosen": "catch"
+  },
+  {
+    "id": "20dab996-aa23-478d-9a6e-f9d34b2100a0",
+    "word_prompted": "key",
+    "context_given": [
+      "From now on, give me 7 distinct synonyms for the word key. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 7, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for key and match the additional context.",
+      "noun"
+    ],
+    "word_chosen": "wrench"
+  },
+  {
+    "id": "0d4c36fb-0452-4216-adbc-89d80cd22fe0",
+    "word_prompted": "fix",
+    "context_given": [
+      "From now on, give me 7 distinct synonyms for the word fix. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 7, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for fix and match the additional context."
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "ae37c270-f65d-4b78-abcb-d541ed00918c",
+    "word_prompted": "fix",
+    "context_given": [
+      "From now on, give me 10 distinct synonyms for the word fix. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 10, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for fix and match the additional context."
+    ],
+    "word_chosen": ""
+  }
+]

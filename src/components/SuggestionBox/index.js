@@ -28,7 +28,7 @@ function addEntry(id, wordPrompted, contextsGiven, wordChosen) {
 }
 
 const SuggestionBox = ({ word, numSuggestions, onActivityChange, onTyping }) => {
-    const initPrompt = `From now on, give me ${numSuggestions} distinct synonyms for the word ${word}. You MUST format your response as an array, for example: ["word1", "word2", "word3", "word4"]. Do not include any other information in your response. If you cannot come up with ${numSuggestions}, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for ${word}.`;
+    const initPrompt = `From now on, give me ${numSuggestions} distinct synonyms for the word ${word}. You MUST format your response as an array, for example: ["word1", "word2", "word3", "word4"]. Do not include any other information in your response. If you cannot come up with ${numSuggestions}, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for ${word} and match the additional context.`;
 
     const [suggestions, setSuggestions] = useState([]);
     const [messages, setMessages] = useState([{ role: "user", content: initPrompt }]);

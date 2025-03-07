@@ -1,0 +1,86 @@
+[
+  {
+    "id": "eead5c20-c85f-4078-a429-91b70274abd0",
+    "word_prompted": "woke",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word woke. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for woke and match the additional context.",
+      "im using it as a past tense verb"
+    ],
+    "word_chosen": "awakened"
+  },
+  {
+    "id": "ea5a6125-d023-4824-ab00-312613489234",
+    "word_prompted": "home",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word home. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for home and match the additional context."
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "a99b886d-f983-4d3b-8d87-9456373c4c20",
+    "word_prompted": "space",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word space. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for space and match the additional context."
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "a98b4076-8884-466b-b317-5757008d1523",
+    "word_prompted": "room",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word room. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for room and match the additional context."
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "1785b55e-a2a1-43c1-9258-7b3b87cf1328",
+    "word_prompted": "carefully",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word carefully. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for carefully and match the additional context.",
+      "i mean \"with care\""
+    ],
+    "word_chosen": "delicately"
+  },
+  {
+    "id": "d77ab29e-e8f7-43ac-887a-1d77ad772524",
+    "word_prompted": "realize",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word realize. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for realize and match the additional context.",
+      "more casual"
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "76fb8761-44e5-4d18-a973-c3383b439a39",
+    "word_prompted": "yellow",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word yellow. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for yellow and match the additional context."
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "679819b2-4d5f-420c-9806-d7117a64dde4",
+    "word_prompted": "crazy",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word crazy. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for crazy and match the additional context.",
+      "it is to complete a sentence \"this is ___\""
+    ],
+    "word_chosen": "insane"
+  },
+  {
+    "id": "8213f527-f558-4bdb-95c6-ca0fe6aacace",
+    "word_prompted": "think",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word think. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for think and match the additional context."
+    ],
+    "word_chosen": "consider"
+  },
+  {
+    "id": "05af248a-534b-423b-9e75-af013c71c47f",
+    "word_prompted": "scary",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word scary. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for scary and match the additional context."
+    ],
+    "word_chosen": "Terrifying"
+  }
+]

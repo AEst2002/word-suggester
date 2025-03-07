@@ -1,0 +1,47 @@
+[
+  {
+    "id": "8f1d77b8-97b6-4d8d-b516-ff9fb2c137ae",
+    "word_prompted": "ratty",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word ratty. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for ratty and match the additional context.",
+      "to describe sheets"
+    ],
+    "word_chosen": "Threadbare"
+  },
+  {
+    "id": "01feea16-2810-4709-855a-a6f2666a2a7d",
+    "word_prompted": "grated",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word grated. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for grated and match the additional context.",
+      "as in has bars on it"
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "56190678-cfab-419c-9fde-837455b99a86",
+    "word_prompted": "off-the-grid",
+    "context_given": [
+      "From now on, give me 5 distinct synonyms for the word off-the-grid. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 5, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for off-the-grid and match the additional context.",
+      "as in camping"
+    ],
+    "word_chosen": ""
+  },
+  {
+    "id": "89de2fcf-5ce2-4847-acf2-7abc1f6edce7",
+    "word_prompted": "featureless",
+    "context_given": [
+      "From now on, give me 10 distinct synonyms for the word featureless. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 10, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for featureless and match the additional context."
+    ],
+    "word_chosen": "unmarked"
+  },
+  {
+    "id": "d45ddb24-4a9b-48f2-90eb-4eb16cade043",
+    "word_prompted": "sticky",
+    "context_given": [
+      "From now on, give me 10 distinct synonyms for the word sticky. You MUST format your response as an array, for example: [\"word1\", \"word2\", \"word3\", \"word4\"]. Do not include any other information in your response. If you cannot come up with 10, provide as many as you can. All of my future messages will provide extra context for the word, you should incorporate them into your suggestions. The words you respond with should ALWAYS be synonyms for sticky and match the additional context.",
+      "as in a lock",
+      "hard to move"
+    ],
+    "word_chosen": ""
+  }
+]
